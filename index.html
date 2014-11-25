@@ -8,30 +8,124 @@
 
   <link rel="stylesheet" href="styles.css">
 
+  
+
 </head>
 <body>
 
-<main class="container">
+	<div id="calculator">
+	
+	<input id="total" type="text">
+	
+	<div id="operators">
+
+	<a>+</a>
+	<a>-</a>
+	<a>/</a>
+	<a>*</a>
+	<a>=</a>
+
+
+
+	</div>
+	
+	<div id="numbers">
+		
+		<a>1</a>
+	<a>2</a>
+	<a>3</a>
+	<a>4</a>
+	<a>5</a>
+	<a>6</a>
+	<a>7</a>
+	<a>8</a>
+	<a>9</a>
+	<a id="clear">C</a>
+	<a>0</a>
+	<a id="clearall">AC</a>
+	</div>
+	
+
+	
+	</div>
+
+
+
+<!-- <main id="calculate" class="container">
 
 <h1>Picture Frame Calculator</h1>
 
 
-<input type="text">
+<input id="math" type="text">
 
-<button>1</button><button>2</button><button>3</button><button>4</button><button>5</button><button>6</button><button>7</button><button>8</button><button>9</button><button>0</button>
+<input id="one" type="button" value="1"><input id="two" type="button" value="2"><input id="three" type="button" value="3"><input id="four" type="button" value="4"><input id="five" type="button" value="5"><input id="6" type="button" value="6"><input id="seven" type="button" value="7"><input id="eight" type="button" value="8"><input id="nine" type="button" value="9"><input id="zero" type="button" value="0">
+
+<p id="response"></p>
 	
+
 
 
 
 
 </main>
-
+ -->
 <script>
 	
+document.getElementById("button").onclick = function()
+$(document).ready(function(){
+	var testNumLength = function(number) {
+        if (number.length > 9) {
+            totaldiv.text(number.substr(number.length-9,9));
+            if (number.length > 15) {
+                number = "";
+                totaldiv.text("Err");
+            }
+        } 
+    };
+	var number = "";
+    var newnumber = "";
+    var operator = "";
+    var totaldiv = $("#total");
+    totaldiv.text("0");
 
-
-	
+    waldo.addEventListener("click", function()
+    $("#numbers a").not("#clear,#clearall").click(function(){
+		number += $(this).text();
+		totaldiv.text(number);
+		testNumLength(number);
+    });
+    $("#operators a").not("#equals").click(function(){
+		operator = $(this).text();
+		newnumber = number;
+		number = "";
+		totaldiv.text("0");
+    });
+    $("#clear,#clearall").click(function(){
+		number = "";
+		totaldiv.text("0");
+		if ($(this).attr("id") === "clearall") {
+			newnumber = "";
+		}
+    });
+    $("#equals").click(function(){
+		if (operator === "+"){
+			number = (parseInt(number, 10) + parseInt(newnumber,10)).toString(10);
+		} else if (operator === "-"){
+			number = (parseInt(newnumber, 10) - parseInt(number,10)).toString(10);
+		} else if (operator === "/"){
+			number = (parseInt(newnumber, 10) / parseInt(number,10)).toString(10);
+		} else if (operator === "*"){
+			number = (parseInt(newnumber, 10) * parseInt(number,10)).toString(10);
+		}
+		totaldiv.text(number);
+		testNumLength(number);
+		number = "";
+		newnumber = "";
+    });
+});
 </script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js"></script>
 	
 </body>
 </html>
