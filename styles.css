@@ -8,14 +8,24 @@ body, div, a {
 #calculator {
 	background-color: #999;
 	width: 310px;
-	height: 460px;
+	height: 600px;
 	border: 3px black solid;
 	margin: 10px auto;
 	padding: 5px;
 	border-radius: 10px;
 }
 
-#total {
+#calculator2 {
+	background-color: #999;
+	width: 310px;
+	height: 600px;
+	border: 3px black solid;
+	margin: 10px auto;
+	padding: 5px;
+	border-radius: 10px;
+}
+
+.total {
     height: 70px;
     width: 300px;
     margin:auto;
@@ -26,11 +36,11 @@ body, div, a {
     padding: 0 5px;
 }
 
-#numbers, #operators {
+.numbers, .operators {
 	margin: auto;	
 }
 
-#operators a {
+.operators a {
 	display: block;
 	width: 45px;
 	height: 45px;
@@ -46,11 +56,27 @@ body, div, a {
 	border-radius: 10px;
 }
 
-#numbers a {
+.numbers a {
 	display: block;
 	width: 50px;
 	height: 50px;
 	float: left;
+	text-decoration: none;
+	color: black;
+	text-align: center;
+	font-size: 32pt;
+	padding: 10px;
+	margin: 5px 15px;
+	background: -webkit-gradient(linear, left top, left bottom, from(#EDEDED), to(#DCDCDC));
+	background: -moz-linear-gradient(top, #EDEDED, #DCDCDC);
+	border-radius: 10px;
+}
+
+.numbers_2 a {
+	display: block;
+	width: 250px;
+	height: 50px;
+	
 	text-decoration: none;
 	color: black;
 	text-align: center;

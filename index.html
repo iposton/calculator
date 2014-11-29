@@ -15,9 +15,9 @@
 
 	<div id="calculator">
 	
-	<input id="total" type="text">
+	<input id="placeholder" class="total" type="text" disabled="true">
 	
-	<div id="operators">
+<!-- 	<div id="operators">
 
 	<a>+</a>
 	<a>-</a>
@@ -27,11 +27,11 @@
 
 
 
-	</div>
+	</div> -->
 	
-	<div id="numbers">
+	<div id="calculator-buttons" class="numbers" class="operators">
 		
-		<a>1</a>
+	<a>1</a>
 	<a>2</a>
 	<a>3</a>
 	<a>4</a>
@@ -40,92 +40,181 @@
 	<a>7</a>
 	<a>8</a>
 	<a>9</a>
-	<a id="clear">C</a>
+	<a>C</a>
 	<a>0</a>
-	<a id="clearall">AC</a>
+	<a>AC</a>
+	<a>+</a>
+	<a>-</a>
+	<a>/</a>
+	<a>*</a>
+	<a>=</a>
 	</div>
 	
 
 	
 	</div>
 
+<div id="calculator2">
 
+    <input id="placeholder_height" class="total" type="text" placeholder="height">
 
-<!-- <main id="calculate" class="container">
+    <input id="placeholder_width" class="total" type="text" placeholder="width">
 
-<h1>Picture Frame Calculator</h1>
-
-
-<input id="math" type="text">
-
-<input id="one" type="button" value="1"><input id="two" type="button" value="2"><input id="three" type="button" value="3"><input id="four" type="button" value="4"><input id="five" type="button" value="5"><input id="6" type="button" value="6"><input id="seven" type="button" value="7"><input id="eight" type="button" value="8"><input id="nine" type="button" value="9"><input id="zero" type="button" value="0">
-
-<p id="response"></p>
+    <div id="size-buttons" class="numbers_2">
+		
+	<a>Interior Size</a>
+	<a>Exterior Size</a>
+	<a>Window Size</a>
+	
+	</div>
 	
 
+	
+	</div>
+
+</div>
 
 
 
 
-</main>
- -->
 <script>
-	
-document.getElementById("button").onclick = function()
-$(document).ready(function(){
-	var testNumLength = function(number) {
-        if (number.length > 9) {
-            totaldiv.text(number.substr(number.length-9,9));
-            if (number.length > 15) {
-                number = "";
-                totaldiv.text("Err");
-            }
-        } 
-    };
-	var number = "";
-    var newnumber = "";
-    var operator = "";
-    var totaldiv = $("#total");
-    totaldiv.text("0");
+// All code within this will be in local scope and protected	
+(function(){
 
-    waldo.addEventListener("click", function()
-    $("#numbers a").not("#clear,#clearall").click(function(){
-		number += $(this).text();
-		totaldiv.text(number);
-		testNumLength(number);
-    });
-    $("#operators a").not("#equals").click(function(){
-		operator = $(this).text();
-		newnumber = number;
-		number = "";
-		totaldiv.text("0");
-    });
-    $("#clear,#clearall").click(function(){
-		number = "";
-		totaldiv.text("0");
-		if ($(this).attr("id") === "clearall") {
-			newnumber = "";
+// Constructor function for Calculator object
+	
+function Calculator(){
+
+// Declare self
+var self = this;
+
+// This grabs all the divs within the #calculator-buttons
+var elements = document.querySelectorAll("#calculator-buttons a");
+
+// Placeholder for values displayed
+var placeholder = document.getElementById("placeholder");
+
+// This function initializes when the object is created
+(function init(){
+
+	for(var i = 0; i < elements.length; i++) {
+		elements[i].addEventListener("click", function(){
+
+				 // Figure out what is within the div
+				switch(this.innerHTML){
+
+                             case "AC":
+                             self.clear();
+                             break;
+                             case "=":
+                             self.equals();
+                             break;
+                              default:
+                              placeholder.value = placeholder.value + this.innerHTML;
+                                   break;
+
+                                }
+
+                            });
+
+	}
+
+})();
+
+		// Equals 
+		this.equals = function(){					
+			placeholder.value = eval(placeholder.value);			
 		}
-    });
-    $("#equals").click(function(){
-		if (operator === "+"){
-			number = (parseInt(number, 10) + parseInt(newnumber,10)).toString(10);
-		} else if (operator === "-"){
-			number = (parseInt(newnumber, 10) - parseInt(number,10)).toString(10);
-		} else if (operator === "/"){
-			number = (parseInt(newnumber, 10) / parseInt(number,10)).toString(10);
-		} else if (operator === "*"){
-			number = (parseInt(newnumber, 10) * parseInt(number,10)).toString(10);
+		// Clear
+		this.clear = function(){
+			placeholder.value = "";	
 		}
-		totaldiv.text(number);
-		testNumLength(number);
-		number = "";
-		newnumber = "";
-    });
-});
+
+	}
+
+	var CALCULATOR = new Calculator();	
+	
+
+
+})();
+
+//all code inside this is local scope and protected
+
+// (function(){
+
+// 	//Constructor function for calculator object
+
+// 	function Interior_size(h,w){
+
+// 		var sizes = document.querySelectorAll("#size_buttons a");
+
+// 		var h = document.getElementById("#placeholder_height");
+// 		var w = document.getElementById("#placeholder_width");
+// 		var interior = (h + .5) + (w + .5);
+
+		
+
+// 	}
+
+// 		// This function initializes when the object is created
+// 		(function init(){
+
+// 			for(var i = 0; i < sizes.length; i++){
+// 				sizes[i].addEventListener("click", function(){
+				    
+// 				    // Figure out what is within the div
+// 				    switch(this.innerHTML){
+// 				    	case "AC":
+// 				    		self.clear();
+// 				    		break;
+// 				    	case "=":
+// 				    		self.equals();
+// 				    		break;
+// 				    	default:
+// 				    		placeholder_height.value = placeholder_weight.value + this.innerHTML;
+// 				    		break;
+// 				    }
+
+// 				});
+// 			}
+
+// 		})();
+// 		// Equals 
+// 		this.equals = function(){					
+// 			placeholder.value = eval(placeholder.value);			
+// 		}
+// 		// Clear
+// 		this.clear = function(){
+// 			placeholder.value = "";	
+// 		}
+
+// 	}
+	
+	
+
+
+
+
+// 	})();
+
+		
+		
+
+
+
+	
+
+
+
+
+
+
+
+	
+
 </script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js"></script>
+
 	
 </body>
 </html>
