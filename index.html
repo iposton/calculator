@@ -8,81 +8,44 @@
 
   <link rel="stylesheet" href="styles.css">
 
-  
-
 </head>
 <body>
+	<h1>Calculate the Sum</h1>
 
 	<div id="calculator">
 	
-	<input id="placeholder" class="total" type="text" disabled="true">
-	
-<!-- 	<div id="operators">
-
-	<a>+</a>
-	<a>-</a>
-	<a>/</a>
-	<a>*</a>
-	<a>=</a>
-
-
-
-	</div> -->
-	
-	<div id="calculator-buttons" class="numbers" class="operators">
+		<input id="placeholder" class="total" type="text" disabled="true">
 		
-	<a>1</a>
-	<a>2</a>
-	<a>3</a>
-	<a>4</a>
-	<a>5</a>
-	<a>6</a>
-	<a>7</a>
-	<a>8</a>
-	<a>9</a>
-	<a>C</a>
-	<a>0</a>
-	<a>AC</a>
-	<a>+</a>
-	<a>-</a>
-	<a>/</a>
-	<a>*</a>
-	<a>=</a>
-	</div>
-	
-
-	
-	</div>
-
-<div id="calculator2">
-
-    <input id="placeholder_height" class="total" type="text" placeholder="height">
-
-    <input id="placeholder_width" class="total" type="text" placeholder="width">
-
-    <div id="size-buttons" class="numbers_2">
-		
-	<a>Interior Size</a>
-	<a>Exterior Size</a>
-	<a>Window Size</a>
-	
-	</div>
-	
-
+		<div id="calculator-buttons" class="numbers" class="operators">
+			<a>1</a>
+			<a>2</a>
+			<a>3</a>
+			<a>4</a>
+			<a>5</a>
+			<a>6</a>
+			<a>7</a>
+			<a>8</a>
+			<a>9</a>
+			<a>C</a>
+			<a>0</a>
+			<a>AC</a>
+			<a>+</a>
+			<a>-</a>
+			<a>/</a>
+			<a>*</a>
+			<a>=</a>
+		</div>
 	
 	</div>
 
 </div>
-
-
-
+<footer>&copy; 2015 Ian Poston</footer>
 
 <script>
 // All code within this will be in local scope and protected	
 (function(){
 
 // Constructor function for Calculator object
-	
 function Calculator(){
 
 // Declare self
@@ -103,15 +66,15 @@ var placeholder = document.getElementById("placeholder");
 				 // Figure out what is within the div
 				switch(this.innerHTML){
 
-                             case "AC":
-                             self.clear();
-                             break;
-                             case "=":
-                             self.equals();
-                             break;
-                              default:
-                              placeholder.value = placeholder.value + this.innerHTML;
-                                   break;
+			                             case "AC":
+			                             self.clear();
+			                             break;
+			                             case "=":
+			                             self.equals();
+			                             break;
+			                              default:
+			                              placeholder.value = placeholder.value + this.innerHTML;
+			                                   break;
 
                                 }
 
@@ -138,83 +101,7 @@ var placeholder = document.getElementById("placeholder");
 
 })();
 
-//all code inside this is local scope and protected
-
-// (function(){
-
-// 	//Constructor function for calculator object
-
-// 	function Interior_size(h,w){
-
-// 		var sizes = document.querySelectorAll("#size_buttons a");
-
-// 		var h = document.getElementById("#placeholder_height");
-// 		var w = document.getElementById("#placeholder_width");
-// 		var interior = (h + .5) + (w + .5);
-
 		
-
-// 	}
-
-// 		// This function initializes when the object is created
-// 		(function init(){
-
-// 			for(var i = 0; i < sizes.length; i++){
-// 				sizes[i].addEventListener("click", function(){
-				    
-// 				    // Figure out what is within the div
-// 				    switch(this.innerHTML){
-// 				    	case "AC":
-// 				    		self.clear();
-// 				    		break;
-// 				    	case "=":
-// 				    		self.equals();
-// 				    		break;
-// 				    	default:
-// 				    		placeholder_height.value = placeholder_weight.value + this.innerHTML;
-// 				    		break;
-// 				    }
-
-// 				});
-// 			}
-
-// 		})();
-// 		// Equals 
-// 		this.equals = function(){					
-// 			placeholder.value = eval(placeholder.value);			
-// 		}
-// 		// Clear
-// 		this.clear = function(){
-// 			placeholder.value = "";	
-// 		}
-
-// 	}
-	
-	
-
-
-
-
-// 	})();
-
-		
-		
-
-
-
-	
-
-
-
-
-
-
-
-	
-
 </script>
-
-
-	
 </body>
 </html>
